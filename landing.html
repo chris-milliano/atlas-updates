@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="language" content="english">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="format-detection" content="telephone=yes"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Sample Landing | Atlas Labels</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+    <style>
+
+    /********** GENERAL - START **********/
+    #cm_body {
+        position: relative;
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        overflow-y: auto;
+        margin: 0 auto;
+        font-size: 16px;
+        background-color: #f4f4f4;
+    }
+
+    .cm_box {
+        display: block;
+        width: 100%;
+        overflow-y: auto;
+        margin: 0 auto;
+    }
+    /********** GENERAL - END **********/
+
+
+
+    /********** LANDING PAGE - START **********/
+    @keyframes loading-header {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    .cm_box__content {
+        width: 90%;
+        margin: 20px;
+    }
+
+    .cm_hr {
+        margin: 0;
+        border: 0;
+        border-top: 3px solid #fff;
+    }
+
+    .cm_cta {
+        padding: 20px 0;
+    }
+
+    .cm_cta a {
+        border-bottom: 3px solid #fff;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .cm_cta i {
+        margin: 10px auto;
+        transition: all 1s ease;
+    }
+
+    .cm_cta i:hover {
+        cursor: pointer;
+        background-color: #e69200;
+        color: #fff;
+        border-color: #fff;
+    }
+
+    #cm_landing-page {
+        box-sizing: border-box;
+        background-color: #fff;
+        font-family: 'Lato', helvetica;
+    }
+
+    #cm_landing-modal {
+        position: fixed;
+        width: 100vw;
+        height: 0;
+        top: 0;
+        left: 0;
+        z-index: 100000;
+        background-color: rgba(0,0,0,0.8);
+        transition: all 1s ease;
+    }
+
+    #cm_landing-modal.cm_modal--open {
+        height: 100vh;
+    }
+
+    #cm_modal__close {
+        top: 0;
+        right: 0;
+        width: 10vw;
+        height: 10vw;
+        max-width: 80px;
+        max-height: 80px;
+        margin-right: 0;
+        background: #e69200 url('https://s3.amazonaws.com/atlas-labels-samples/modal_close.png') no-repeat center center;
+        background-size: contain;
+        border-radius: 50%;
+        transition: all 1s ease;
+    }
+
+    #cm_modal__close:hover {
+        cursor: pointer;
+        background-color: #d43928;
+    }
+
+    #cm_landing__header {
+        background: #ccc url('https://s3.amazonaws.com/atlas-labels-samples/header.jpg') no-repeat center center;
+        background-size: cover;
+    }
+
+    #cm_header__logo {
+        width: 90%;
+        max-width: 200px;
+        height: 250px;
+        margin: 40px auto;
+    }
+
+    #cm_header__logo-image {
+        width: 100%;
+        height: 100%;
+        background: transparent url('https://s3.amazonaws.com/atlas-labels-samples/header_logo.png') no-repeat center center;
+        background-size: contain;
+        animation: loading-header ease 1;
+        animation-duration: 5s;
+        transition: all 1s ease;
+    }
+
+    #cm_header__logo-image:hover {
+        opacity: .8;
+        transform: scale(.9);
+    }
+
+
+    #cm_header__header-copy {
+        display: none;
+    }
+
+    #cm_about__image {
+        /* background: #666 url('https://s3.amazonaws.com/atlas-labels-samples/about.png') no-repeat center center; */
+        background: #666 no-repeat center center;
+        background-size: contain;
+        color: #fff;
+        width: 100vw;
+        /* padding-top: 75%; */
+    }
+
+    #cm_about__copy {
+        text-align: center;
+    }
+
+    #cm_about__copy p {
+        text-align: left;
+    }
+
+    #cm_about__copy .cm_cta a {
+        color: #d43928;
+        border-color: #d43928;
+    }
+
+    #cm_landing__products-section {
+        background-color: #d43928;
+        text-align: center;
+        color: #fff;
+    }
+
+    #cm_landing__products {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .cm_products__product {
+        background-color: #fff;
+        width: 240px;
+        height: 200px;
+        margin: 10px;
+        position: relative;
+    }
+
+    .cm_product__cover {
+        position: absolute;
+        z-index: 3;
+        width: 100%;
+        height: 100%;
+        background-color: #747474;
+        opacity: 0;
+        transition: all 1s ease;
+    }
+
+    .cm_product__cover:hover {
+        cursor: pointer;
+        opacity: 0.4;
+    }
+
+    .cm_product__image {
+        width: 95%;
+        height: 95%;
+        background: #ccc no-repeat center center;
+        background-size: cover;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #cm_product--carriers .cm_product__image { background-image: url('https://s3.amazonaws.com/atlas-labels-samples/carriers.jpg') }
+    #cm_product--crowns .cm_product__image { background-image: url('https://s3.amazonaws.com/atlas-labels-samples/crowns.jpg') }
+    #cm_product--keg-cap .cm_product__image { background-image: url('https://s3.amazonaws.com/atlas-labels-samples/keg-cap.jpg') }
+    #cm_product--labels .cm_product__image { background-image: url('https://s3.amazonaws.com/atlas-labels-samples/labels.jpg') }
+
+    .cm_product__label {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        height: 25%;
+        bottom: 0;
+        background-color: rgba(255,255,255,0.9);
+        color: #000;
+        transition: all 1s ease;
+    }
+
+    .cm_products__product:hover .cm_product__label {
+        height: 100%;
+        background-color: rgba(255,255,255,0.5);
+    }
+
+    .cm_product__text {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cm_product__text h5 {
+        margin: 0 auto;
+    }
+
+    #cm_landing__contact-section {
+        background-color: #666;
+    }
+
+    .ctct-inline-form {
+        margin: 30px auto;
+    }
+
+
+    /* #cm_landing__contact-section {
+        background-color: purple;
+    }
+
+    #cm_contact__started {
+        background-color: #666;
+        color: #fff;
+        text-align: center;
+    }
+
+    #cm_contact__started p {
+        text-align: left;
+    }
+
+    #cm_contact__started .cm_cta i:hover {
+        background-color: #d43928;
+    }
+
+    #cm_contact__hr {
+        display: block;
+    }
+
+    #cm_contact__contact-us {
+        background-color: #fff;
+        text-align: center;
+    }
+
+    #cm_contact__contact-us p {
+        text-align: left;
+    }
+
+    #cm_contact__contact-us .cm_cta a {
+        color: #d43928;
+        border-color: #d43928;
+    } */
+
+    @media screen and (min-width: 768px) {
+
+        #cm_header__header-copy {
+            display: block;
+            width: 90%;
+            max-width: 800px;
+            height: 50px;
+            margin-bottom: 40px;
+            color: #fff;
+            position: relative;
+        }
+
+        #cm_header__header-copy h1 {
+            position: absolute;
+            margin: 0 auto;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            transition: all 1.5s ease;
+        }
+        #cm_header-copy__item--1 { z-index: 1; }
+        #cm_header-copy__item--2 { z-index: 2; }
+        #cm_header-copy__item--3 { z-index: 3; }
+
+        #cm_header__header-copy .header-copy--show {
+            opacity: 1;
+        }
+
+
+        #cm_landing__about {
+            display: flex;
+            align-items: stretch;
+        }
+
+        #cm_about__copy {
+            width: 50%;
+            text-align: center;
+        }
+
+        #cm_about__image {
+            width: 50%;
+            padding: 0;
+        }
+
+        #cm_landing__contact-section {
+            display: flex;
+            align-items: stretch;
+        }
+
+        /* #cm_contact__hr {
+            display: none;
+        }
+
+        #cm_contact__contact-us {
+            width: 50%;
+        }
+
+        #cm_contact__started {
+            width: 50%;
+        } */
+    }
+
+    @media screen and (min-width: 1200px) {
+
+        #cm_landing-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-left: 2px solid #000;
+            border-right: 2px solid #000;
+        }
+    }
+    /********** LANDING PAGE - END **********/
+
+
+
+    /********** NAV - START **********/
+    #cm_nav {
+        box-sizing: border-box;
+        font-family: 'Lato', helvetica;
+    }
+
+    #cm_nav__spacer {
+        height: 96px;
+    }
+
+    #cm_nav__logos {
+        background-color: #d43928;
+        position: fixed;
+        z-index: 100000;
+        top: 0;
+        border-bottom: 1px solid #000;
+    }
+
+    #cm_nav__logo {
+        width: 200px;
+        height: 75px;
+        background: transparent url('https://s3.amazonaws.com/atlas-labels-samples/nav_logo.png') no-repeat center center;
+        background-size: contain;
+        margin: 10px 0;
+        margin-left: 5%;
+        float: left;
+        border-radius: 10px;
+        transition: all 1s ease;
+    }
+
+    #cm_nav__logo:hover {
+        background-color: #666;
+    }
+
+    #cm_nav__desktop-options {
+        position: relative;
+        width: 0;
+        height: 0;
+        display: none;
+    }
+
+    #cm_nav__menu-button {
+        width: 75px;
+        height: 75px;
+        border-radius: 10px;
+        margin: 10px 0;
+        margin-right: 5%;
+        float: right;
+        transition: all 1s ease;
+    }
+
+    #cm_nav__menu-button:hover {
+        cursor: pointer;
+        background-color: #e69200;
+    }
+
+    #cm_nav__menu-icon {
+        margin: 13.5px auto;
+    }
+
+    .bar {
+        width: 60px;
+        height: 12px;
+        background-color: #e69200;
+        margin: 6px auto;
+        border-radius: 6px;
+        transition: all 1s ease;
+    }
+
+    #cm_nav__menu-button:hover .bar {
+        background-color: #fff;
+    }
+
+    .change .bar--1 {
+        -webkit-transform: rotate(-45deg) translate(-13px,11px);
+        transform: rotate(-45deg) translate(-13px, 11px);
+    }
+
+    .change .bar--2 { opacity: 0; }
+
+    .change .bar--3 {
+        -webkit-transform: rotate(45deg) translate(-13px, -13px);
+        transform: rotate(45deg) translate(-13px, -13px);
+    }
+
+    #cm_nav__menu-options {
+        position: fixed;
+        z-index: 100000;
+        top: 96px;
+        height: auto;
+        max-height: calc(100vh - 96px);
+        background-color: #fff;
+    }
+
+    #cm_nav__options {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+        height: 0;
+        opacity: 0;
+        transition: all 1s ease;
+    }
+
+    #cm_nav__options.cm_nav__options--open {
+        height: auto;
+        opacity: 1;
+    }
+
+    .cm_nav__option {
+        color: #000;
+        text-decoration: none;
+        padding: 10px 0;
+        border-bottom: 1px solid #000;
+        transition: all 1s ease;
+    }
+
+    .cm_nav__option:nth-child(even) {
+        background-color: #e69200;
+    }
+
+    .cm_nav__option:hover {
+        background-color: #d43928;
+    }
+
+    .cm_nav__option:nth-last-child(1) {
+        border-bottom: 3px solid #d43928;
+    }
+
+
+    @media screen and (min-width: 1200px) {
+
+        #cm_nav__desktop-options {
+            width: 800px;
+            height: 75px;
+            margin: 10px 0;
+            margin-right: 5%;
+            float: right;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        #cm_nav__desktop-options a {
+            text-decoration: none;
+        }
+
+        .cm_desktop__option {
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 20px;
+            width: auto;
+            padding: 5px 10px;
+            transition: all 1s ease;
+        }
+
+        .cm_desktop__option:hover {
+            background-color: #e69200;
+            border-color: #000;
+        }
+
+        #cm_nav__menu-button {
+            display: none;
+        }
+    }
+    /********** NAV - END **********/
+
+
+    /********** FOOTER - START **********/
+
+    #cm_footer {
+        box-sizing: border-box;
+        font-family: 'Lato', helvetica;
+        color: #000;
+        background-color: #fff;
+        border-top: 1px solid #000;
+    }
+
+    .cm_footer-box {
+        margin: 20px auto;
+    }
+
+    .cm_footer-box ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+    }
+
+    .cm_footer-box li {
+        margin-bottom: 10px;
+    }
+
+    .cm_footer-box a {
+        text-decoration: none;
+        color: #000;
+        transition: all 1s ease;
+    }
+
+    .cm_footer-box a:hover {
+        color: #e69200;
+        background-color: #666;
+    }
+
+    #cm_footer__social-links {
+        width: 100%;
+        margin-top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;;
+    }
+
+    #cm_footer__social-links a:hover {
+        background-color: transparent;
+    }
+
+    .cm_social__link {
+        margin: 0 10px;
+        color: #d43928;
+        transition: all 1s ease;
+    }
+
+    .cm_social__link:hover {
+        color: #e69200;
+    }
+
+    @media screen and (min-width: 768px) {
+
+        .cm_footer-box {
+            width: 50%;
+            float: left;
+        }
+
+        #cm_footer__page-links ul {
+            padding-left: 10%;;
+            text-align: left;
+        }
+
+        #cm_footer__contact-links ul {
+            padding-right: 10%;;
+            text-align: right;
+        }
+    }
+
+    /********** FOOTER - END **********/
+
+    </style>
+
+</head>
+<body id="cm_body">
+
+<!-- NAV - START -->
+
+<nav id="cm_nav" class="cm_box">
+    <div id="cm_nav__spacer" class="cm_box"></div>
+
+    <div id="cm_nav__logos" class="cm_box">
+        <a href="https://atlaslabels.com/" title="Home">
+            <div id="cm_nav__logo" class="cm_box"></div>
+        </a>
+        <div id="cm_nav__menu-button" class="cm_box" onclick="toggleMenu()">
+            <div id="cm_nav__menu-icon">
+                <div class="bar bar--1"></div>
+                <div class="bar bar--2"></div>
+                <div class="bar bar--3"></div>
+            </div>
+        </div>
+
+        <div id="cm_nav__desktop-options" class="cm_box">
+            <a href="https://atlaslabels.com/our-products/" title="Our Products" class="cm_box cm_desktop__option">
+                <div>OUR PRODUCTS</div>
+            </a>
+            <a href="https://atlaslabels.com/about-atlas-labels/" title="About" class="cm_box cm_desktop__option">
+                <div>ABOUT US</div>
+            </a>
+            <a href="https://atlaslabels.com/submit-your-artwork/" title="Upload Artwork" class="cm_box cm_desktop__option">
+                <div>UPLOAD ARTWORK</div>
+            </a>
+            <a href="https://atlaslabels.com/payment-portal/" title="Payment Portal" class="cm_box cm_desktop__option">
+                <div>PAYMENT PORTAL</div>
+            </a>
+            <a href="https://atlaslabels.com/contact-us/" title="Contact Us" class="cm_box cm_desktop__option">
+                <div>CONTACT US</div>
+            </a>
+        </div>
+    </div>
+
+    <div id="cm_nav__menu-options" class="cm_box">
+        <ul id="cm_nav__options" class="cm_box">
+            <a href="https://atlaslabels.com/our-products/" title="Our Products" class="cm_box cm_nav__option">
+                <li>OUR PRODUCTS</li>
+            </a>
+            <a href="https://atlaslabels.com/about-atlas-labels/" title="About" class="cm_box cm_nav__option">
+                <li>ABOUT US</li>
+            </a>
+            <a href="https://atlaslabels.com/submit-your-artwork/" title="Upload Artwork" class="cm_box cm_nav__option">
+                <li>UPLOAD ARTWORK</li>
+            </a>
+            <a href="https://atlaslabels.com/payment-portal/" title="Payment Portal" class="cm_box cm_nav__option">
+                <li>PAYMENT PORTAL</li>
+            </a>
+            <a href="https://atlaslabels.com/contact-us/" title="Contact Us" class="cm_box cm_nav__option">
+                <li>CONTACT US</li>
+            </a>
+            <a href="https://atlaslabels.com/atlas-labels-blog/" title="Our Blog" class="cm_box cm_nav__option">
+                <li>OUR BLOG</li>
+            </a>
+            <a href="https://boxshop.atlaslabels.com/" title="Online Catalog" class="cm_box cm_nav__option">
+                <li>ONLINE CATALOG</li>
+            </a>
+        </ul>
+    </div>
+
+</nav>
+
+<script>
+
+    // Handle all menu button click animations
+    function toggleMenu() {
+
+        // Update menu button
+        document.getElementById('cm_nav__menu-icon').classList.toggle("change");
+
+        // Update menu options
+        document.getElementById('cm_nav__options').classList.toggle("cm_nav__options--open");
+    }
+
+</script>
+
+<!-- NAV - END -->
+
+
+<!-- LANDING PAGE - START -->
+
+<div id="cm_landing-page" class="cm_box">
+
+    <div id="cm_landing-modal" class="cm_box">
+        <div id="cm_modal__close" onclick="toggleModal()" class="cm_box"></div>
+        <!-- TODO: Add real constant contact -->
+        <div class="ctct-inline-form" data-form-id="3c77a0a7-e41d-45b7-9b9c-97e1ca643979"></div>
+    </div>
+
+    <div id="cm_landing__header" class="cm_box">
+
+        <div id="cm_header__logo" class="cm_box">
+            <a href="https://atlaslabels.com/" title="Atlas Home">
+                <div id="cm_header__logo-image" class="cm_box"></div>
+            </a>
+        </div>
+
+
+        <div id="cm_header__header-copy" class="cm_box">
+            <h1 id="cm_header-copy__item--1">
+                Industry Leader in Customer Service
+            </h1>
+            <h1 id="cm_header-copy__item--2">
+                Our Business is Your Passion
+            </h1>
+            <h1 id="cm_header-copy__item--3">
+                Beverage is Our Business
+            </h1>
+        </div>
+    </div>
+
+    <hr class="cm_hr" />
+
+    <div id="cm_landing__about" class="cm_box">
+        <div id="cm_about__copy" class="cm_box">
+            <div class="cm_box cm_box__content">
+                <h2>ABOUT US</h2>
+                <p>
+                    Atlas Labels & Packaging began in 1977, with the motto “Strength Through Integrity, Creativity and Customer Service.” We have evolved into a leading national provider of printed packaging materials to the alcoholic and specialty beverage industries.   We provide packaging materials for brewpubs, bottling and canning microbreweries and soda producers, and promotional items for the entire industry.
+                </p>
+                <div class="cm_box cm_cta">
+                    <a href="https://atlaslabels.com/about-atlas-labels/" title="About Us">
+                        <i>LEARN MORE</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="cm_about__image" class="cm_box">
+            <div class="cm_box cm_box__content">
+                <h2>12-PACK CAN BOX PROMO</h2>
+                <p>
+                    The packaging shift in the craft beer industry is is full
+                    swing. With over 23% of the industry volume now in the 12-pack
+                    Can Box Promotion in time to kick-off the key summer selling
+                    season! Please see all important promotion details by
+                    following the link below!
+                </p>
+                <div class="cm_box cm_cta">
+                    <a href="#cm_about__image" title="Some Link">
+                        <i>LEARN MORE</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- <div id="cm_about__image" class="cm_box"></div> -->
+    </div>
+
+    <hr class="cm_hr" />
+
+    <div id="cm_landing__products-section" class="cm_box">
+        <h2>OUR PRODUCTS</h2>
+        <div id="cm_landing__products" class="cm_box">
+            <a href="#">
+                <div id="cm_product--carriers" class="cm_box cm_products__product">
+                    <div class="cm_box cm_product__cover"></div>
+                    <div class="cm_box cm_product__image"></div>
+                    <div class="cm_box cm_product__label">
+                        <div class="cm_box cm_product__text">
+                            <h5>CARRIERS</h5>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div id="cm_product--crowns" class="cm_box cm_products__product">
+                    <div class="cm_box cm_product__cover"></div>
+                    <div class="cm_box cm_product__image"></div>
+                    <div class="cm_box cm_product__label">
+                        <div class="cm_box cm_product__text">
+                            <h5>CROWNS</h5>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div id="cm_product--keg-cap" class="cm_box cm_products__product">
+                    <div class="cm_box cm_product__cover"></div>
+                    <div class="cm_box cm_product__image"></div>
+                    <div class="cm_box cm_product__label">
+                        <div class="cm_box cm_product__text">
+                            <h5>KEG CAPS</h5>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div id="cm_product--labels" class="cm_box cm_products__product">
+                    <div class="cm_box cm_product__cover"></div>
+                    <div class="cm_box cm_product__image"></div>
+                    <div class="cm_box cm_product__label">
+                        <div class="cm_box cm_product__text">
+                            <h5>LABELS</h5>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="cm_box cm_cta">
+            <a href="https://atlaslabels.com/our-products/" title="Our Products">
+                <i>VIEW ALL</i>
+            </a>
+        </div>
+    </div>
+
+    <hr class="cm_hr" />
+
+    <div id="cm_landing__contact-section" class="cm_box">
+        <!-- Begin Constant Contact Inline Form Code -->
+        <div class="ctct-inline-form" data-form-id="3c77a0a7-e41d-45b7-9b9c-97e1ca643979"></div>
+        <!-- End Constant Contact Inline Form Code -->
+    </div>
+
+<!--
+    <div id="cm_landing__contact-section" class="cm_box">
+
+        <div id="cm_contact__started" class="cm_box">
+            <div class="cm_box cm_box__content">
+                <h2>LET'S GET STARTED</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <div class="cm_box cm_cta">
+                    <a onclick="toggleModal()">
+                        <i>LEARN MORE</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <hr id="cm_contact__hr" class="cm_hr" />
+
+        <div id="cm_contact__contact-us" class="cm_box">
+            <div class="cm_box cm_box__content">
+                <h2>CONTACT US</h2>
+                <p>
+                    At Atlas we are industry leaders in customer service, we believe that our business is your passion. We always encourage anyone to reach out to reach out to us and take advantage of our expertise. Please feel free to reach out to us about any packaging questions you might have.
+                </p>
+                <div class="cm_box cm_cta">
+                    <a href="https://atlaslabels.com/contact-us/" title="Contact Us">
+                        <i>CONTACT</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+-->
+
+
+    <hr class="cm_hr" />
+</div>
+
+
+<!-- Begin Constant Contact Active Forms -->
+<script> var _ctct_m = "d0140426e814ebc79995c562d31b4680"; </script>
+<script id="signupScript" src="https://static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
+<!-- End Constant Contact Active Forms -->
+
+<script>
+
+    // Hold info about the available and current header copy to display
+    var copyIndex = 1;
+    var numCopyObjects = 3;
+    var copyObjects = {
+        1: "cm_header-copy__item--1",
+        2: "cm_header-copy__item--2",
+        3: "cm_header-copy__item--3",
+    }
+
+
+    // Handle swapping out copy in the header
+    function swapHeaderCopy() {
+
+        // Remove the class giving the indexed copy opacity
+        document.getElementById(copyObjects[copyIndex]).classList.remove("header-copy--show");
+
+        // Iterate thru copy objects, and loop at the end of the list
+        copyIndex++;
+        if (copyIndex > numCopyObjects) { copyIndex = 1; }
+
+        // Add the class to give the newly indexed copy opacity
+        document.getElementById(copyObjects[copyIndex]).classList.add("header-copy--show");
+    }
+
+
+    // Show the initial text, start the interval to swap out the text on screens
+    // big enough to display the copy
+    if (document.documentElement.clientWidth > 768) {
+        document.getElementById(copyObjects[copyIndex]).classList.toggle("header-copy--show");
+        var headerCopyInterval = setInterval(swapHeaderCopy, 3000);
+    }
+
+
+    // Handle constant contact modal
+    function toggleModal() {
+        document.getElementById('cm_landing-modal').classList.toggle('cm_modal--open');
+    }
+
+
+</script>
+<!-- LANDING PAGE - END -->
+
+
+<!-- FOOTER - START -->
+
+<footer id="cm_footer" class="cm_box">
+
+    <div id="cm_footer__page-links" class="cm_box cm_footer-box">
+        <ul>
+            <li>
+                <a href="https://atlaslabels.com/our-products/" title="Our Products">
+                    OUR PRODUCTS
+                </a>
+            </li>
+            <li>
+                <a href="https://atlaslabels.com/about-atlas-labels/" title="About">
+                    ABOUT US
+                </a>
+            </li>
+            <li>
+                <a href="https://atlaslabels.com/submit-your-artwork/" title="Upload Artwork">
+                    UPLOAD ARTWORK
+                </a>
+            </li>
+            <li>
+                <a href="https://atlaslabels.com/payment-portal/" title="Payment Portal">
+                    PAYMENT PORTAL
+                </a>
+            </li>
+            <li>
+                <a href="https://atlaslabels.com/contact-us/" title="Contact Us">
+                    CONTACT US
+                </a>
+            </li>
+            <li>
+                <a href="https://atlaslabels.com/atlas-labels-blog/" title="Our Blog">
+                    OUR BLOG
+                </a>
+            </li>
+            <li>
+                <a href="https://boxshop.atlaslabels.com/" title="Online Catalog">
+                    ONLINE CATALOG
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="cm_footer__contact-links" class="cm_box cm_footer-box">
+        <ul>
+            <li>
+                <h2>CONTACT INFO</h2>
+            </li>
+            <li>
+                TOLL-FREE: <a href="tel:18002470360">1-800-247-0360</a>
+            </li>
+            <li>
+                FAX: <a href="fax:19138979643">913-897-9643</a>
+            </li>
+            <li>
+                EMAIL: <a href="mailto:info@atlaslabels.com">info@atlaslabels.com</a>
+            </li>
+            <li>
+                <a href="https://goo.gl/maps/xgwpLfkNJYp">
+                    3107 Merriam Lane<br />
+                    Kansas City, KS 66106 USA
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="cm_footer__social-links" class="cm_box cm_footer-box">
+        <a href="https://www.facebook.com/AtlasLabelsPackaging" title="Facebook">
+            <i class="fab fa-3x fa-facebook-square cm_social__link"></i>
+        </a>
+        <a href="https://www.linkedin.com/company/3264783/?trk=tyah&trkInfo=tas%3Aatlas%20labels%20" title="Twitter">
+            <i class="fab fa-3x fa-twitter-square cm_social__link"></i>
+        </a>
+        <a href="https://twitter.com/AtlasLabels" title="Linkedin">
+            <i class="fab fa-3x fa-linkedin cm_social__link"></i>
+        </a>
+    </div>
+
+</footer>
+
+<!-- FOOTER - END -->
+
+
+</body>
+</html>

@@ -1,0 +1,528 @@
+/********** GENERAL - START - By Chris Milliano **********/
+#cm_html {
+    margin: 0 !important;
+}
+
+#cm_body {
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    overflow-y: auto;
+    margin: 0 auto;
+    font-size: 16px;
+    background-color: #f4f4f4;
+}
+
+.cm_box {
+    display: block;
+    width: 100%;
+    overflow-y: auto;
+    margin: 0 auto;
+}
+/********** GENERAL - END - By Chris Milliano **********/
+
+/********** LANDING PAGE - START - By Chris Milliano **********/
+@keyframes loading-header {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.cm_box__content {
+    width: 90%;
+    margin: 20px;
+}
+
+.cm_hr {
+    margin: 0;
+    border: 0;
+    border-top: 3px solid #fff;
+}
+
+.cm_cta {
+    padding: 20px 0;
+}
+
+.cm_cta a {
+    border-bottom: 3px solid #fff;
+    text-decoration: none;
+    color: #fff;
+}
+
+.cm_cta i {
+    margin: 10px auto;
+    transition: all 1s ease;
+}
+
+.cm_cta i:hover {
+    cursor: pointer;
+    background-color: #e69200;
+    color: #fff;
+    border-color: #fff;
+}
+
+#cm_landing-page {
+    box-sizing: border-box;
+    background-color: #fff;
+    font-family: 'Russo One', helvetica;
+}
+
+#cm_landing-page h2  {
+    margin: .8em 0;
+    color: #fff;
+}
+
+#cm_landing__header {
+    background: #ccc url('https://atlaslabels.com/wp-content/uploads/2013/10/LargeSlider_21.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+#cm_header__logo {
+    width: 90%;
+    max-width: 200px;
+    height: 250px;
+    margin: 40px auto;
+}
+
+#cm_header__logo-image {
+    width: 100%;
+    height: 100%;
+    background: transparent url('https://s3.amazonaws.com/atlas-labels-samples/header_logo.png') no-repeat center center;
+    background-size: contain;
+    animation: loading-header ease 1;
+    animation-duration: 5s;
+    transition: all 1s ease;
+}
+
+#cm_header__logo-image:hover {
+    opacity: .8;
+    transform: scale(.9);
+}
+
+#cm_header__header-copy {
+    display: none;
+}
+
+#cm_about__image {
+    background: #666 no-repeat center center;
+    background-size: cover;
+    background-blend-mode: multiply;
+    color: #fff;
+    width: 100vw;
+}
+
+#cm_about__image h2 {
+    color: #fff !important;
+}
+
+#cm_about__copy {
+    text-align: center;
+}
+
+#cm_about__copy p {
+    text-align: left;
+}
+
+#cm_about__copy .cm_cta a {
+    color: #d43928;
+    border-color: #d43928;
+}
+
+#cm_landing__products-section {
+    background-color: #d43928;
+    text-align: center;
+    color: #fff;
+}
+
+#cm_landing__products {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cm_products__product {
+    background-color: #fff;
+    width: 240px;
+    height: 200px;
+    margin: 10px;
+    position: relative;
+}
+
+.cm_product__cover {
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    background-color: #747474;
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.cm_product__cover:hover {
+    cursor: pointer;
+    opacity: 0.4;
+}
+
+.cm_product__image {
+    width: 95%;
+    height: 95%;
+    background: #ccc no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cm_product__label {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 25%;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.9);
+    color: #000;
+    transition: all 1s ease;
+}
+
+.cm_products__product:hover .cm_product__label {
+    height: 100%;
+    background-color: rgba(255,255,255,0.5);
+}
+
+.cm_product__text {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cm_product__text h5 {
+    margin: 0 auto;
+}
+
+#cm_landing__contact-section {
+    background-color: #666;
+}
+
+.ctct-inline-form {
+    margin: 30px auto;
+}
+
+
+@media screen and (min-width: 768px) {
+
+    #cm_header__header-copy {
+        display: block;
+        width: 90%;
+        max-width: 800px;
+        height: 50px;
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    #cm_header__header-copy h1 {
+        position: absolute;
+        margin: 0 auto;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff;
+        opacity: 0;
+        transition: all 1.5s ease;
+    }
+    #cm_header-copy__item--1 { z-index: 1; }
+    #cm_header-copy__item--2 { z-index: 2; }
+    #cm_header-copy__item--3 { z-index: 3; }
+
+    #cm_header__header-copy .header-copy--show {
+        opacity: 1;
+    }
+
+
+    #cm_landing__about {
+        display: flex;
+        align-items: stretch;
+    }
+
+    #cm_landing__about h2 {
+        color: #424242;
+    }
+
+    #cm_about__copy {
+        width: 50%;
+        text-align: center;
+    }
+
+    #cm_about__image {
+        width: 50%;
+        padding: 0;
+    }
+
+    #cm_landing__contact-section {
+        display: flex;
+        align-items: stretch;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+
+    #cm_landing-page {
+        max-width: 1200px;
+        margin: 0 auto;
+        border-left: 2px solid #000;
+        border-right: 2px solid #000;
+    }
+}
+/********** LANDING PAGE - END - By Chris Milliano **********/
+
+/********** NAV - START - By Chris Milliano **********/
+#cm_nav {
+    box-sizing: border-box;
+    font-family: 'Russo One', helvetica;
+}
+
+#cm_nav__spacer {
+    height: 96px;
+}
+
+#cm_nav__logos {
+    background-color: #d43928;
+    position: fixed;
+    z-index: 100000;
+    top: 0;
+    border-bottom: 1px solid #000;
+}
+
+#cm_nav__logo {
+    width: 200px;
+    height: 75px;
+    background: transparent url('https://atlaslabels.com/wp-content/uploads/2018/03/nav_logo.png') no-repeat center center;
+    background-size: contain;
+    margin: 10px 0;
+    margin-left: 5%;
+    float: left;
+    border-radius: 10px;
+    transition: all 1s ease;
+}
+
+#cm_nav__logo:hover {
+    background-color: #666;
+}
+
+#cm_nav__desktop-options {
+    position: relative;
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+#cm_nav__menu-button {
+    width: 75px;
+    height: 75px;
+    border-radius: 10px;
+    margin: 10px 0;
+    margin-right: 5%;
+    float: right;
+    transition: all 1s ease;
+}
+
+#cm_nav__menu-button:hover {
+    cursor: pointer;
+    background-color: #e69200;
+    color: #fff;
+}
+
+#cm_nav__menu-icon {
+    margin: 13.5px auto;
+}
+
+.bar {
+    width: 60px;
+    height: 12px;
+    background-color: #e69200;
+    margin: 6px auto;
+    border-radius: 6px;
+    transition: all 1s ease;
+}
+
+#cm_nav__menu-button:hover .bar {
+    background-color: #fff;
+}
+
+.change .bar--1 {
+    -webkit-transform: rotate(-45deg) translate(-13px,11px);
+    transform: rotate(-45deg) translate(-13px, 11px);
+}
+
+.change .bar--2 { opacity: 0; }
+
+.change .bar--3 {
+    -webkit-transform: rotate(45deg) translate(-13px, -13px);
+    transform: rotate(45deg) translate(-13px, -13px);
+}
+
+#cm_nav__menu-options {
+    position: fixed;
+    z-index: 100000;
+    top: 96px;
+    height: auto;
+    max-height: calc(100vh - 96px);
+    background-color: #fff;
+}
+
+#cm_nav__options {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    height: 0;
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+#cm_nav__options.cm_nav__options--open {
+    height: auto;
+    opacity: 1;
+}
+
+.cm_nav__option {
+    color: #000;
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid #000;
+    transition: all 1s ease;
+}
+
+.cm_nav__option:nth-child(even) {
+    background-color: #e69200;
+}
+
+.cm_nav__option:hover {
+    background-color: #d43928;
+}
+
+.cm_nav__option:nth-last-child(1) {
+    border-bottom: 3px solid #d43928;
+}
+
+
+@media screen and (min-width: 1200px) {
+
+    #cm_nav__desktop-options {
+        width: 800px;
+        height: 75px;
+        margin: 10px 0;
+        margin-right: 5%;
+        float: right;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    #cm_nav__desktop-options a {
+        text-decoration: none;
+    }
+
+    .cm_desktop__option {
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 20px;
+        width: auto;
+        padding: 5px 10px;
+        transition: all 1s ease;
+    }
+
+    .cm_desktop__option:hover {
+        background-color: #e69200;
+        color: #fff;
+        border-color: #000;
+    }
+
+    #cm_nav__menu-button {
+        display: none;
+    }
+}
+/********** NAV - END - By Chris Milliano **********/
+
+
+/********** FOOTER - START - By Chris Milliano **********/
+
+#cm_footer {
+    box-sizing: border-box;
+    font-family: 'Russo One', helvetica;
+    color: #000;
+    background-color: #fff;
+    border-top: 1px solid #000;
+}
+
+.cm_footer-box {
+    margin: 20px auto;
+}
+
+.cm_footer-box ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.cm_footer-box li {
+    margin-bottom: 10px;
+}
+
+.cm_footer-box a {
+    text-decoration: none;
+    color: #000;
+    transition: all 1s ease;
+}
+
+.cm_footer-box a:hover {
+    color: #e69200;
+    background-color: #666;
+}
+
+#cm_footer__social-links {
+    width: 100%;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+}
+
+#cm_footer__social-links a:hover {
+    background-color: transparent;
+}
+
+.cm_social__link {
+    margin: 0 10px;
+    color: #d43928;
+    transition: all 1s ease;
+}
+
+.cm_social__link:hover {
+    color: #e69200;
+}
+
+@media screen and (min-width: 768px) {
+
+    .cm_footer-box {
+        width: 50%;
+        float: left;
+    }
+
+    #cm_footer__page-links ul {
+        padding-left: 10%;;
+        text-align: left;
+    }
+
+    #cm_footer__contact-links ul {
+        padding-right: 10%;;
+        text-align: right;
+    }
+}
+
+/********** FOOTER - END - By Chris Milliano **********/
